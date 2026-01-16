@@ -1,0 +1,11 @@
+#Host *
+#    ForwardX11 yes
+#    ForwardX11Trusted yes
+#    ForwardX11Timeout 596h
+
+# SSH over Session Manager
+# ssh -i ~/.ssh/<ssh_key>.pem ec2-user@i-xxxxxxxxxxx -o "ProxyCommand=aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=22' --region ap-northeast-1 --profile default"
+# can be ommitted
+# ssh -i ~/.ssh/<ssh_key>.pem ec2-user@i-xxxxxxxxxx
+host i-* mi-*
+    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"

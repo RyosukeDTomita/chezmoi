@@ -256,20 +256,6 @@ fi
 
 #-----add PATH-----
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT/bin ]]; then
-  PATH=$PATH":$PYENV_ROOT/bin"
-  eval "$(pyenv init -)"
-fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  . "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
-
-
 # aquaでinstallしたツールにPATHを通す
 if command -v aqua >/dev/null 2>&1; then
   PATH=$PATH:$(aqua root-dir)/bin
@@ -278,7 +264,6 @@ fi
 
 # oh-my-zshのcore.pagerによってgit status等がless形式でページングされてしまうとAI Agentが止まってしまうのでページングをやめる。
 export GIT_PAGER=cat
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # mise

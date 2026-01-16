@@ -23,6 +23,9 @@ My dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 - Shell: zsh
 - dotfiles manager: [chezmoi](https://www.chezmoi.io/)
 - neovim
+- nix
+- VS Code
+    - Dev Containers
 
 ---
 
@@ -47,11 +50,33 @@ sudo apt install ./chezmoi_2.69.3_linux_amd64.deb
 ```shell
 chezmoi edit <your dotfile name>
 chizmoi apply # deploy changes
+chezmoi cd # go to chezmoi directory(~/.local/share/chezmoi/)
+git add .
+git commit -m "update <your dotfile name>"
+git push
 ```
 
 > [!NOTE]
-> If you update dotfiles directly, use `chezmoi apply` to deploy changes.
+> If you update dotfiles directly then `~/.local/share/chezmoi/` will not be changed.
 
-###
+### add new dotfiles
+
+```shell
+chezmoi add <your dotfile path>
+```
+
+### synchronize dotfiles
+
+After try
+
+### create `install.sh`
+
+```shell
+chezmoi generate-install-script > install.sh
+```
+
+### ignore files
+
+use `.chezmoiignore` file.
 
 ---

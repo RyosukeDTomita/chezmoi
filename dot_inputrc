@@ -1,0 +1,17 @@
+# bash専用
+set editing-mode vi
+set keymap vi-command
+
+# Ctrl + p で履歴を遡る
+"\C-p": previous-history
+
+# Ctrl + n で履歴を進む
+"\C-n": next-history
+
+set keymap vi-insert
+
+# Ctrl + p で履歴を遡る
+"\C-p": previous-history
+
+# Ctrl + n で履歴を進む
+"\C-n": next-history

@@ -1,0 +1,42 @@
+[user]
+	name = RyosukeDTomita
+	email = d310151c2@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+	ignorecase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+#[merge]
+#	ff = false
+#[pull]
+#	ff = only
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[alias]
+	staash = stash --all
+	bb = !/home/tomita/initialsetting/better-branch.sh
+	pushf = push --force-with-lease
+	lol = log --graph  --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	lof = log  --name-status  --oneline --graph --decorate --abbrev-commit --all
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /home/tomita/devsecops-demo-aws-ecs
+[rebase]
+	autoStash = true
+	autosquash = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential]
+	helper = store

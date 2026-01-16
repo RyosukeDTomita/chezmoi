@@ -1,0 +1,107 @@
+{
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.wordWrap": "on",
+  "editor.fontSize": 20,
+  "terminal.integrated.fontSize": 22, // minimapを非表示にする
+  "workbench.editor.enablePreview": false, // ファイルをsingleClick時に並列のタブで開くようにする
+  "update.mode": "default", // 更新を有効にする
+  "update.showReleaseNotes": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // Vim Extensionsと干渉しないようオフにする
+  "editor.editContext": false,
+
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#d3d3d3",
+    "terminalCursor.foreground": "#d3d3d3",
+    "terminal.background": "#032129",
+    "sideBar.background": "#032129"
+  },
+
+  // icons
+  "workbench.iconTheme": "material-icon-theme",
+
+  // markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+  },
+  "markdownlint.config": {
+    "MD010": false, // タブ
+    "MD013": false // 長い行
+  },
+
+  // vim
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.code_vimrc",
+  "editor.cursorStyle": "block-outline",
+  "editor.cursorBlinking": "solid",
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "block",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.visualline": "block",
+  "vim.useSystemClipboard": true,
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // Dev containerの個人的に使うExtensionsを入れる。
+  "dev.containers.defaultExtensions": [
+    "formulahendry.auto-rename-tag",
+    "Anthropic.claude-code"
+  ],
+
+  // Dev Containersでdotfilesを使う。
+  // NOTE: .gitconfigは何もしなくてもDev ContainersのHOMEディレクトリにコピーされる。
+  "dotfiles.repository": "https://github.com/RyosukeDTomita/dotfiles.git",
+  "dotfiles.targetPath": "~/dotfiles",
+  // ~/dotfilesのrepository topからみたスクリプトのパスを指定する。
+  "dotfiles.installCommand": "install.sh",
+  "chat.editing.alwaysSaveWithGeneratedChanges": true,
+
+  // React
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Paste Imageで保存時にファイル名を指定できるようにする
+  "pasteImage.showFilePathConfirmInputBox": true,
+
+  // GitHub Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "haskell": false
+  },
+  "accessibility.voice.keywordActivation": "inlineChat",
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "chat.agent.enabled": true,
+  "chat.tools.autoApprove": true, // YOLO
+  "cSpell.userWords": [
+    "modelcontextprotocol"
+  ],
+
+  // MCP
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "python.defaultInterpreterPath": "/home/sigma/.local/bin/python3.14",
+  "chat.tools.terminal.autoApprove": {
+    "git ls-files gradle/wrapper/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "jar": true,
+    "javap": true
+  },
+  "github.copilot.chat.localeOverride": "ja",
+
+}

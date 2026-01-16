@@ -1,0 +1,44 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# 表の自動生成
+[[plugins]]
+repo = 'mattn/vim-maketable'
+
+# ()の補完
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+# ファイルツリー
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+# ステータスバーの編集
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+# ステータスバーのカラースキーム
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# 行末の空白を削除
+# NOTE: ex-command FixWhitespace
+[[plugins]]
+repo ='bronson/vim-trailing-whitespace'
+
+# gitの変更場所を表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+# markdownのpreview
+[[plugins]]
+repo = 'previm/previm'
+
+# Indent Guides
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# コメントアウト
+[[plugins]]
+repo = 'tpope/vim-commentary'
+

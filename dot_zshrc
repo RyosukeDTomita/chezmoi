@@ -75,7 +75,7 @@ ZSH_THEME="essembeh"
 plugins=(
   git
   vi-mode
-  zsh-autocomplete
+  #zsh-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -213,14 +213,6 @@ function rm() {
 } # end function rm
 
 
-
-
-# convert caps ctrl
-if type setxkbmap > /dev/null 2>&1; then
-  setxkbmap -model jp106 -layout jp -option ctrl:nocaps
-fi
-
-
 # default editor
 export VISUAL=vim;
 export EDITOR=vim;
@@ -235,14 +227,6 @@ export EDITOR=vim;
 #export HTTPS_PROXY=$http_proxy
 #export FTP_PROXY=$http_proxy
 #export RSYNC_PROXY=$http_proxy
-
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT/bin ]]; then
-  PATH=$PATH":$PYENV_ROOT/bin"
-  eval "$(pyenv init -)"
-fi
 
 
 # aws
@@ -264,17 +248,6 @@ fi
 #export SSLKEYLOGFILE=/home/sigma/ssl-key.log
 
 
-# settings for command line edit mode vi
-# NOTE: oh-my-zshのvi-mode pluginが全部よしなにやってくれるのでarchiveする。https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode
-#bindkey -v # bash set -o vi
-#bindkey '^P' up-history # emacs Ctrl p
-#bindkey '^N' down-history # emacs Ctrl n
-#bindkey '^[[A' up-line-or-search
-#bindkey '^[[B' down-line-or-search
-#bindkey '^A' vi-beginning-of-line # emacs Ctrl A
-# Ctrl r https://github.com/ohmyzsh/ohmyzsh/issues/5213
-#bindkey '^r' history-incremental-search-backward
-
 #-----環境ごとの特殊設定，Secretsを外だし-----
 if [ -f ~/.shell_secrets ]; then
   source ~/.shell_secrets
@@ -283,9 +256,12 @@ fi
 
 #-----add PATH-----
 
-# rbenv
-PATH=$PATH":$HOME/.rbenv/bin"
-
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]]; then
+  PATH=$PATH":$PYENV_ROOT/bin"
+  eval "$(pyenv init -)"
+fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -293,22 +269,10 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
   . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
-# go lang
-if command -v go >/dev/null 2>&1; then
-  PATH=$PATH":/usr/local/go/bin"
-  PATH=$PATH":$(go env GOPATH)/bin"
-fi
-
 
 # aquaでinstallしたツールにPATHを通す
 if command -v aqua >/dev/null 2>&1; then
   PATH=$PATH:$(aqua root-dir)/bin
-fi
-
-
-# deno
-if [ -f "/home/tomita/.deno/env" ]; then
-  . "/home/tomita/.deno/env"
 fi
 
 
@@ -321,15 +285,5 @@ export GIT_PAGER=cat
 if [ -s ${HOME}/.local/bin/mise ]; then
   eval "$(${HOME}/.local/bin/mise activate zsh)"
 fi
-
-
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/zshrc.post.zsh"
-
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
-
-[ -f "/home/sigma/.ghcup/env" ] && . "/home/sigma/.ghcup/env" # ghcup-env
 
 eval "$(direnv hook zsh)"

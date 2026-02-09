@@ -58,6 +58,7 @@ git push
 
 > [!NOTE]
 > If you update dotfiles directly then `~/.local/share/chezmoi/` will not be changed.
+> `chezmoi add <your dotfile name>`
 
 ### add new dotfiles
 

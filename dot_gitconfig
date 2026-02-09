@@ -1,6 +1,7 @@
 [user]
 	name = RyosukeDTomita
 	email = d310151c2@gmail.com
+	signingkey = ~/.ssh/id_ed25519_signing.pub
 [color]
 	ui = auto
 [core]
@@ -40,3 +41,11 @@
 	helper = !/usr/bin/gh auth git-credential
 [credential]
 	helper = store
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/sigma/.config/git/allowed_signers

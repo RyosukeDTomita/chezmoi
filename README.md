@@ -26,6 +26,7 @@ My dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 - nix
 - VS Code
     - Dev Containers
+- Ghostty
 
 ---
 
@@ -66,9 +67,11 @@ git push
 chezmoi add <your dotfile path>
 ```
 
-### synchronize dotfiles
+### update chezmoi dotfile
 
-After try
+```shell
+chezmoi re-add <your dotfile path>
+```
 
 ### create `install.sh`
 

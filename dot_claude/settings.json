@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FLAG=/tmp/claude_notified; [ -f \"$FLAG\" ] || { play /usr/share/sounds/freedesktop/stereo/window-attention.oga 2>/dev/null; touch \"$FLAG\"; }"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "play /usr/share/sounds/freedesktop/stereo/message-new-instant.oga 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rm -f /tmp/claude_notified"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haskell Interact IO"
+  short_description: "Write Haskell solutions with interact/BS.interact IO."
+  default_prompt: "Use this skill when writing Haskell competitive-programming code that must read input via interact or BS.interact and print output in one pass."

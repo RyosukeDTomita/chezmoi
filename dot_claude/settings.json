@@ -2,10 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(tree:*)"
     ]
   },
-  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -40,5 +43,6 @@
         ]
       }
     ]
-  }
+  },
+  "model": "opus"
 }

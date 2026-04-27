@@ -6,7 +6,8 @@
       "Read",
       "Grep",
       "Glob",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(chezmoi managed *)"
     ]
   },
   "hooks": {

@@ -70,6 +70,8 @@ chezmoi add <your dotfile path>
 ### update chezmoi dotfile
 
 ```shell
+chezmoi status
+chezmoi re-add # 全追加
 chezmoi re-add <your dotfile path>
 ```
 

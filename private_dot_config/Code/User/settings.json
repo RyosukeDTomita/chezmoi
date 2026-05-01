@@ -103,5 +103,6 @@
     "javap": true
   },
   "github.copilot.chat.localeOverride": "ja",
+  "claudeCode.preferredLocation": "panel",
 
 }

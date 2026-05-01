@@ -31,5 +31,12 @@ nix-collect-garbage
 nix store optimise
 """
 
+[tasks.clean-disk]
+description = "Reduce journal logs to 500MB and remove disabled snap revisions"
+run = """
+sudo journalctl --vacuum-size=500M
+snap list --all | awk '/disabled/{print $1, $3}' | while read name rev; do sudo snap remove "$name" --revision="$rev"; done
+"""
+
 [settings]
 idiomatic_version_file_enable_tools = []

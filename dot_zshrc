@@ -274,8 +274,3 @@ fi
 eval "$(direnv hook zsh)"
 
 
-# Claude Code終了後にKitty keyboard protocolをリセット
-claude() {
-  command claude "$@"
-  printf '\e[>0u'
-}

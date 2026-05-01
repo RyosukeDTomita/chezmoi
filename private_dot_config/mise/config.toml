@@ -24,5 +24,12 @@ sudo macchanger -r "$NIC"
 sudo ip link set dev "$NIC" up
 """
 
+[tasks.nix-gc]
+description = "Run nix-collect-garbage and optimise the nix store"
+run = """
+nix-collect-garbage
+nix store optimise
+"""
+
 [settings]
 idiomatic_version_file_enable_tools = []

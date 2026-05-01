@@ -8,7 +8,8 @@
       "Glob",
       "Bash(tree:*)",
       "Bash(chezmoi managed *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "hooks": {
     "Notification": [
@@ -40,10 +41,30 @@
           {
             "type": "command",
             "command": "rm -f /tmp/claude_notified"
+          },
+          {
+            "type": "command",
+            "command": "sh -c 'I=$(cat); SID=$(printf %s \"$I\" | jq -r .session_id); M=$(printf %s \"$I\" | jq -r \".permission_mode // \\\"default\\\"\"); [ -n \"$SID\" ] && printf %s \"$M\" > \"/tmp/claude-mode-$SID\"' >/dev/null 2>&1 || true"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'I=$(cat); SID=$(printf %s \"$I\" | jq -r .session_id); M=$(printf %s \"$I\" | jq -r \".permission_mode // \\\"default\\\"\"); [ -n \"$SID\" ] && printf %s \"$M\" > \"/tmp/claude-mode-$SID\"' >/dev/null 2>&1 || true"
           }
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/sigma/.claude/statusline.sh",
+    "padding": 1
   },
   "model": "opus"
 }

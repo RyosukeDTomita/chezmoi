@@ -1,0 +1,8 @@
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-p": null
+    }
+  }
+]

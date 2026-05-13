@@ -51,5 +51,6 @@
     "command": "/home/sigma/.claude/statusline.sh",
     "padding": 1
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "model": "opus"
 }

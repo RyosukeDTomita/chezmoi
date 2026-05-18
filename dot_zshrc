@@ -168,6 +168,7 @@ alias gl='git log --graph --oneline -n'
 alias gl10='git log --graph --oneline -n 10'
 alias rmnore='git rm -r --cached'
 alias gw='git worktree'
+alias claude-dsp='claude --dangerously-skip-permissions'
 # WSL or Ubuntu desktop
 # NOTE: /proc/versionにmicrosoftが入っているかどうかでWSLか判定できる。
 if grep -q microsoft /proc/version; then

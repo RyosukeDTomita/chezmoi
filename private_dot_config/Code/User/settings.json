@@ -104,5 +104,9 @@
   },
   "github.copilot.chat.localeOverride": "ja",
   "claudeCode.preferredLocation": "panel",
+  "files.watcherExclude": {
+    "**/.bloop/**": true,
+    "**/.metals/**/*.{java,scala}": true
+  },
 
 }

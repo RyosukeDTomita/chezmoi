@@ -2,7 +2,25 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-p": null
+      "ctrl-p": null,
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+      "g j": ["vim::Down", { "display_lines": false }],
+      "g k": ["vim::Up", { "display_lines": false }]
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious",
+      "enter": "editor::ConfirmCompletion"
     }
   }
 ]

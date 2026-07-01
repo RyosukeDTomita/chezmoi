@@ -1,4 +1,8 @@
 {
+  "env": {
+    "EDITOR": "nvim",
+    "VISITOR": "nvim"
+  },
   "permissions": {
     "allow": [
       "Bash(ls:*)",
@@ -11,6 +15,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -44,6 +49,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/sigma/.claude/skills/daily-brief/hook.sh"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -51,6 +67,8 @@
     "command": "/home/sigma/.claude/statusline.sh",
     "padding": 1
   },
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
-  "model": "opus"
+  "theme": "dark",
+  "skipAutoPermissionPrompt": true
 }

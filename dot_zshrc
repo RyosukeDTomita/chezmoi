@@ -275,3 +275,10 @@ fi
 eval "$(direnv hook zsh)"
 
 
+
+# bun completions
+[ -s "/home/sigma/.bun/_bun" ] && source "/home/sigma/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

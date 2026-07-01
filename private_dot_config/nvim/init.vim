@@ -143,7 +143,9 @@ set updatetime=100 "response faster
 nnoremap <C-/> gcc
 
 "deoplateとcoc.vimが相性が悪かったのでtabで補完候補を選ぶ設定をvimrcに追加した。
-inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
+"Tab: ポップアップ表示中は候補を移動、直前がパス文字列ならファイルパス補完(i_CTRL-X_CTRL-F)、それ以外は通常Tab
+inoremap <expr><Tab> pumvisible() ? "\<DOWN>" :
+      \ (matchstr(getline('.')[:col('.')-2], '\f\+$') =~ '[/~.]') ? "\<C-x>\<C-f>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 let g:tex_flavor = 'latex'
 

@@ -31,10 +31,25 @@ nix store optimise
 """
 
 [tasks.clean-disk]
-description = "Reduce journal logs to 500MB and remove disabled snap revisions"
+description = "Reduce journal logs to 500MB, remove disabled snap revisions, prune mise tools, and clean apt cache"
 run = """
 sudo journalctl --vacuum-size=500M
 snap list --all | awk '/disabled/{print $1, $3}' | while read name rev; do sudo snap remove "$name" --revision="$rev"; done
+mise prune --yes
+sudo apt clean
+sudo apt autoremove -y
+"""
+
+[tasks.container-clean]
+description = "Remove all docker/podman containers, images, volumes, and build cache"
+run = """
+docker rm -f $(docker ps -a -q) 2>/dev/null || true
+docker rmi -f $(docker images -a -q) 2>/dev/null || true
+docker volume prune -af
+docker builder prune -af
+podman rm -f $(podman ps -a -q) 2>/dev/null || true
+podman rmi -f $(podman images -a -q) 2>/dev/null || true
+podman volume prune -f
 """
 
 [tasks.chezmoi-push]

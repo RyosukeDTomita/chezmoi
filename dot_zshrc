@@ -282,3 +282,6 @@ eval "$(direnv hook zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# JetBrains IntelliJ IDEA
+export PATH="$HOME/.local/share/JetBrains/idea/bin:$PATH"

@@ -24,10 +24,9 @@ sudo ip link set dev "$NIC" up
 """
 
 [tasks.nix-gc]
-description = "Run nix-collect-garbage and optimise the nix store"
+description = "Run nix-collect-garbage and optimise the nix store using nh"
 run = """
-nix-collect-garbage
-nix store optimise
+nh clean all --keep-since 220d --keep-one
 """
 
 [tasks.clean-disk]
@@ -73,6 +72,12 @@ if [ -z "$msg" ]; then
 fi
 git commit -m "$msg"
 git push origin main
+"""
+
+[tasks.cpu-temp-monitor]
+description = "check cpu temperature"
+run = """
+watch -n1 'sensors coretemp-isa-0000'
 """
 
 [settings]

@@ -37,6 +37,10 @@
   "buffer_font_features": {
     "calt": false
   },
+  // エディタ上部に code action ボタンを常駐させる(デフォルトは false)。
+  "toolbar": {
+    "code_actions": true
+  },
   "theme": {
     "mode": "system",
     "light": "One Light",

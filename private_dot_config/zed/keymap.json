@@ -22,5 +22,23 @@
       "shift-tab": "editor::ContextMenuPrevious",
       "enter": "editor::ConfirmCompletion"
     }
+  },
+  // ctrl-enter で hlint などの hint を適用する。
+  // デフォルトの assistant::InlineAssist を上書きする。
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-enter": "editor::ToggleCodeActions"
+    }
+  },
+  // メニューが開いている間はもう一度 ctrl-enter で選択中の hint を適用。
+  // より後ろの定義が優先されるため、この順序である必要がある。
+  {
+    "context": "Editor && showing_code_actions",
+    "bindings": {
+      "ctrl-enter": "editor::ConfirmCodeAction",
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
   }
 ]

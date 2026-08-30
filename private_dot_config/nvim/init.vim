@@ -124,6 +124,7 @@ endif
 let g:airline_theme = 'solarized'
 
 "previm/previm
+"let g:previm_open_cmd = 'setsid -f google-chrome'
 let g:previm_open_cmd = 'firefox'
 let g:previm_enable_realtime = 1
 

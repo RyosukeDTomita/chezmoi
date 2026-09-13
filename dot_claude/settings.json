@@ -67,19 +67,26 @@
     "command": "/home/sigma/.claude/statusline.sh",
     "padding": 1
   },
+  "enabledPlugins": {
+    "eli5@claude-community": true,
+    "i-have-adhd@i-have-adhd": true
+  },
   "extraKnownMarketplaces": {
     "claude-community": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-community"
       }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
     }
   },
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
-  "skipAutoPermissionPrompt": true,
-  "enabledPlugins": {
-    "eli5@claude-community": true
-  }
+  "skipAutoPermissionPrompt": true
 }

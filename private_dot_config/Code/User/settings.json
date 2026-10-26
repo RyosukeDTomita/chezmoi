@@ -9,6 +9,10 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
 
+  // 最後の編集から5秒後に自動保存する。
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 5000,
+
   // Vim Extensionsと干渉しないようオフにする
   "editor.editContext": false,
 

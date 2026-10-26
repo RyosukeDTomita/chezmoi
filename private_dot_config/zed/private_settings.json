@@ -31,6 +31,10 @@
   "project_panel": {
     "dock": "left"
   },
+  // フォーカスが外れたら自動保存する(Claude Codeとの共同編集で未保存の変更が残る時間をなくす)。
+  "autosave": "on_focus_change",
+  "tab_size": 2,
+  "hard_tabs": false,
   "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 15,
@@ -40,6 +44,10 @@
   // エディタ上部に code action ボタンを常駐させる(デフォルトは false)。
   "toolbar": {
     "code_actions": true
+  },
+  // プレビュータブを無効化し、1回クリックでも常に新しいタブで開く。
+  "preview_tabs": {
+    "enabled": false
   },
   "theme": {
     "mode": "system",

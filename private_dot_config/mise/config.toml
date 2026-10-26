@@ -1,4 +1,5 @@
 [tools]
+dust = "latest"
 gemini = "latest"
 jq = "latest"
 neovim = "latest"

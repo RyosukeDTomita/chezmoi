@@ -13,6 +13,10 @@
       "Bash(tree:*)",
       "Bash(chezmoi managed *)"
     ],
+    "deny": [
+      "Read(**/sigma.md)",
+      "Edit(**/sigma.md)"
+    ],
     "defaultMode": "auto"
   },
   "model": "opus",
@@ -69,7 +73,8 @@
   },
   "enabledPlugins": {
     "eli5@claude-community": true,
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "explainer@explainer": true
   },
   "extraKnownMarketplaces": {
     "claude-community": {
@@ -82,6 +87,12 @@
       "source": {
         "source": "github",
         "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "explainer": {
+      "source": {
+        "source": "github",
+        "repo": "mizchi/explainer"
       }
     }
   },

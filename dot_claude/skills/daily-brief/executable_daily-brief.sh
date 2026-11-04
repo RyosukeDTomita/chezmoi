@@ -10,11 +10,11 @@ export TZ=Asia/Tokyo
 CHECKLIST_URL="${CHECKLIST_URL:-https://ryosukedtomita.github.io/myblog/posts/checklist/index.html}"
 
 # 4 時境界の論理日。00:00〜03:59 は前日扱い。
-DAY="$(date -d '-4 hours' +%F)"
+DAY="$(date -d '-4 hours' +%F 2>/dev/null || date -v-4H +%F)"
 
 echo "=== DATE ==="
 echo "logical_day: $DAY (JST, 4時境界)"
-echo "weekday: $(date -d "$DAY" +%A)"
+echo "weekday: $(date -d "$DAY" +%A 2>/dev/null || date -j -f %F "$DAY" +%A)"
 
 echo
 echo "=== CHECKLIST ==="

@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "FLAG=/tmp/claude_notified; [ -f \"$FLAG\" ] || { play /usr/share/sounds/freedesktop/stereo/window-attention.oga 2>/dev/null; touch \"$FLAG\"; }"
+            "command": "FLAG=/tmp/claude_notified; [ -f \"$FLAG\" ] || { {{ if eq .chezmoi.os "darwin" }}afplay /System/Library/Sounds/Ping.aiff{{ else }}play /usr/share/sounds/freedesktop/stereo/window-attention.oga{{ end }} 2>/dev/null; touch \"$FLAG\"; }"
           }
         ]
       }
@@ -38,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "play /usr/share/sounds/freedesktop/stereo/message-new-instant.oga 2>/dev/null"
+            "command": "{{ if eq .chezmoi.os "darwin" }}afplay /System/Library/Sounds/Glass.aiff{{ else }}play /usr/share/sounds/freedesktop/stereo/message-new-instant.oga{{ end }} 2>/dev/null"
           }
         ]
       }
@@ -60,7 +60,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /home/sigma/.claude/skills/daily-brief/hook.sh"
+            "command": "bash {{ .chezmoi.homeDir }}/.claude/skills/daily-brief/hook.sh"
           }
         ]
       }
@@ -68,7 +68,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "/home/sigma/.claude/statusline.sh",
+    "command": "{{ .chezmoi.homeDir }}/.claude/statusline.sh",
     "padding": 1
   },
   "enabledPlugins": {

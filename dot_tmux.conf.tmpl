@@ -59,9 +59,9 @@ bind -T copy-mode-vi v send -X begin-selection # 'v' で選択を始める
 bind -T copy-mode-vi V send -X select-line # 'V' で行選択
 bind -T copy-mode-vi C-v send -X rectangle-toggle # 'C-v' で矩形選択
 #bind -T copy-mode-vi y send -X copy-selection
-bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xsel -ib" # 'y' でヤンクしてクリップボードに
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "{{ if eq .chezmoi.os "darwin" }}pbcopy{{ else }}xsel -ib{{ end }}" # 'y' でヤンクしてクリップボードに
 #bind -T copy-mode-vi Y send -X copy-line
-bind -T copy-mode-vi Y send -X copy-line-pipe-and-cancel "xsel -ib" # 'Y' で行ヤンクしてクリップボードに
+bind -T copy-mode-vi Y send -X copy-line-pipe-and-cancel "{{ if eq .chezmoi.os "darwin" }}pbcopy{{ else }}xsel -ib{{ end }}" # 'Y' で行ヤンクしてクリップボードに
 bind-key C-p paste-buffer # 'C-p'でペースト
 
 

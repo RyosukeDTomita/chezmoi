@@ -19,7 +19,7 @@ My dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 
 ## ENVIRONMENT
 
-- OS: Ubuntu 22.04 LTS
+- OS: Ubuntu 22.04 LTS / macOS
 - Shell: zsh
 - dotfiles manager: [chezmoi](https://www.chezmoi.io/)
 - neovim

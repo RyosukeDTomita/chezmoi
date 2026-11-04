@@ -121,8 +121,10 @@ fi
 
 
 #------------added by tomita------------
+{{ if eq .chezmoi.os "linux" -}}
 PATH=$PATH":/home/tomita/bash"
 CDPATH=:/home/tomita/memo/
+{{ end -}}
 alias matrix='cmatrix -abs'
 alias rm='rm -iv'
 alias mv='mv -iv'
@@ -143,7 +145,9 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 alias cd='cd '
+{{ if eq .chezmoi.os "linux" -}}
 alias dl='/home/tomita/Downloads'
+{{ end -}}
 alias gs='git status'
 alias gb='git branch'
 alias mkprg='mkprg.bash'
@@ -163,6 +167,7 @@ alias ping='ping -t 128'
 alias redmine='cd /usr/local/bin/redmine-4.2.8 && bundle exec rails server webrick -e production > /dev/null 2>&1 &'
 
 
+{{ if eq .chezmoi.os "linux" -}}
 # WSL or Ubuntu desktop
 # NOTE: /proc/versionにmicrosoftが入っているかどうかでWSLか判定できる。
 if grep -q microsoft /proc/version; then
@@ -170,7 +175,7 @@ if grep -q microsoft /proc/version; then
 else
   alias open='xdg-open'
 fi
-
+{{ end }}
 
 # rm -rf -i
 function rm() {
@@ -293,4 +298,4 @@ fi
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/.local/share/amazon-q/shell/bashrc.post.bash" ]] && builtin source "${HOME}/.local/share/amazon-q/shell/bashrc.post.bash"
-. "/home/tomita/.deno/env"
+{{ if eq .chezmoi.os "linux" }}. "/home/tomita/.deno/env"{{ end }}

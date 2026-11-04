@@ -15,10 +15,10 @@ SKILL_SCRIPT="$HOME/.claude/skills/daily-brief/daily-brief.sh"
 # フックの stdin (JSON) は読み捨て。日付 dedup があるため source 判定は不要。
 cat >/dev/null 2>&1 || true
 
-DAY="$(date -d '-4 hours' +%F)"   # 論理日 YYYY-MM-DD
+DAY="$(date -d '-4 hours' +%F 2>/dev/null || date -v-4H +%F)"   # 論理日 YYYY-MM-DD (GNU || BSD date)
 Y="${DAY%%-*}"                    # YYYY
 YM="${DAY%-*}"                    # YYYY-MM
-M="$(date -d "$DAY" +%-m)"        # 月 (前ゼロなし)
+M="$(date -d "$DAY" +%-m 2>/dev/null || date -j -f %F "$DAY" +%-m)"        # 月 (前ゼロなし)
 
 # --- state 読み込み (なければ空) ---
 read_field() {

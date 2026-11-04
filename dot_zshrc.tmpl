@@ -139,8 +139,12 @@ setopt HIST_FIND_NO_DUPS # Ctrl r使用時に重複コマンドを表示しな�
 setopt HIST_IGNORE_SPACE
 
 # sigma's alias
+{{ if eq .chezmoi.os "linux" -}}
 PATH=$PATH":/home/tomita/bash"
 CDPATH=:/home/tomita/memo/ # cdのtab completionのsuggestに追加
+{{ else if eq .chezmoi.os "darwin" -}}
+export PATH="$HOME/.local/bin:$PATH"
+{{ end -}}
 alias cd='cd ' # cdの後にエイリアスを使えるようにする設定
 alias ls='ls --color=auto -F'
 alias grep='grep --color=auto'
@@ -169,6 +173,7 @@ alias gl10='git log --graph --oneline -n 10'
 alias rmnore='git rm -r --cached'
 alias gw='git worktree'
 alias claude-dsp='claude --dangerously-skip-permissions'
+{{ if eq .chezmoi.os "linux" -}}
 # WSL or Ubuntu desktop
 # NOTE: /proc/versionにmicrosoftが入っているかどうかでWSLか判定できる。
 if grep -q microsoft /proc/version; then
@@ -180,6 +185,7 @@ fi
 # settings for ubuntu desktop
 alias screenshot='gnome-screenshot'
 alias lock="xdg-screensaver lock"
+{{ end -}}
 #alias upower='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias chrome='google-chrome-stable > /dev/null 2>&1 &'
 alias firefox='firefox > /dev/null 2>&1 &'
@@ -277,7 +283,7 @@ eval "$(direnv hook zsh)"
 
 
 # bun completions
-[ -s "/home/sigma/.bun/_bun" ] && source "/home/sigma/.bun/_bun"
+[ -s "{{ .chezmoi.homeDir }}/.bun/_bun" ] && source "{{ .chezmoi.homeDir }}/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

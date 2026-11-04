@@ -32,10 +32,10 @@
 	autosquash = true
 [credential "https://github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential]
 	helper = store
 [gpg]
@@ -45,4 +45,4 @@
 [tag]
 	gpgsign = true
 [gpg "ssh"]
-	allowedSignersFile = /home/sigma/.config/git/allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers

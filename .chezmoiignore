@@ -1,6 +1,7 @@
 LICENSE
 README.md
 install.sh
+docs
 .codex/skills/.system
 
 {{ if ne .chezmoi.os "darwin" }}

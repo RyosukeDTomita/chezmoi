@@ -1,4 +1,5 @@
 [tools]
+claude = "latest"
 dust = "latest"
 gemini = "latest"
 jq = "latest"

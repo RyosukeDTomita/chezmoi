@@ -49,6 +49,7 @@ sudo apt install ./chezmoi_2.69.3_linux_amd64.deb
 ### update dotfiles
 
 ```shell
+chezmoi cd # chezmoiのソースがある場所に移動
 chezmoi edit <your dotfile name>
 chizmoi apply # deploy changes
 chezmoi cd # go to chezmoi directory(~/.local/share/chezmoi/)

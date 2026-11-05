@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+{{- if eq .chezmoi.os "darwin" }}
+  "suggest_extensions": true,
+{{- end }}
   "agent": {
     "dock": "left",
     "favorite_models": [],
@@ -52,6 +55,6 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "NeoSolarized Dark",
+    "dark": "{{ if eq .chezmoi.os "darwin" }}Solarized Dark{{ else }}NeoSolarized Dark{{ end }}",
   },
 }
